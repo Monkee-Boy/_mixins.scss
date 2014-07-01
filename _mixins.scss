@@ -126,28 +126,32 @@
   user-select: $select;
 }
 
-@mixin triangle($direction: 'up', $size: 6px, $color: #333){
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  content: '';
-  @if ($direction == 'up'){
-    border-bottom: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
-  } @else if ($direction == 'down'){
-    border-top: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
-  } @else if ($direction == 'left'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-right: $size solid $color;
-  } @else if ($direction == 'right'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-left: $size solid $color;
+@mixin triangle($direction: 'up', $size: 6px, $color: #333) {
+  @if type-of($direction) != "string" {
+    @warn "`#{$direction}` should be a string for `triangle` mixin.";
+  } @else {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    @if ($direction == 'up') {
+      border-bottom: $size solid $color;
+      border-left: 1/2*$size solid transparent;
+      border-right: 1/2*$size solid transparent;
+    } @else if ($direction == 'down') {
+      border-top: $size solid $color;
+      border-left: 1/2*$size solid transparent;
+      border-right: 1/2*$size solid transparent;
+    } @else if ($direction == 'left') {
+      border-top: 1/2*$size solid transparent;
+      border-bottom: 1/2*$size solid transparent;
+      border-right: $size solid $color;
+    } @else if ($direction == 'right') {
+      border-top: 1/2*$size solid transparent;
+      border-bottom: 1/2*$size solid transparent;
+      border-left: $size solid $color;
+    }
   }
 }
 
@@ -188,7 +192,7 @@
 
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {
-    @content; 
+    @content;
   }
   @-moz-keyframes #{$name} {
     @content;
@@ -198,7 +202,7 @@
   }
   @keyframes #{$name} {
     @content;
-  } 
+  }
 }
 
 @mixin animation($animation) {
@@ -209,10 +213,18 @@
 }
 
 /* Functions */
-@function lighten($color, $percent){
-  @return tint(white, $color, $percent);
+@function lighten($color, $percent) {
+  @if type-of($color) != color {
+    @warn "`#{$color}` should be a valid color for `lighten`.";
+  } @else {
+    @return mix(white, $color, $percent);
+  }
 }
 
-@function darken($color, $percent){
-  @return shade(black, $color, $percent);
+@function darken($color, $percent) {
+  @if type-of($color) != color {
+    @warn "`#{$color}` should be a valid color for `shade`.";
+  } @else {
+    @return mix(black, $color, $percent);
+  }
 }
