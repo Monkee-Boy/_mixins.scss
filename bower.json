@@ -1,0 +1,6 @@
+{
+  "name": "monkee-mixins",
+  "version": "1.2.0",
+  "main": "_mixins.scss",
+  "ignore": [ ]
+}
