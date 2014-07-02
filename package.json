@@ -1,0 +1,48 @@
+{
+  "name": "monkee-mixins",
+  "version": "1.2.0",
+  "description": "Just a simple collection of useful SASS mixins and functions from Monkee-Boy.",
+  "keywords": [
+    "sass",
+    "mixins",
+    "functions",
+    "css",
+    "monkeeboy"
+  ],
+  "homepage": "https://github.com/Monkee-Boy/_mixins.scss",
+  "bugs": {
+    "url" : "https://github.com/Monkee-Boy/_mixins.scss/issues"
+  },
+  "author": {
+    "name": "Monkee-Boy",
+    "url": "https://monkee-boy.github.io"
+  },
+  "contributors": [
+    {
+      "name": "James Fleeting",
+      "email": "james@monkee-boy.com",
+      "url": "https://github.com/fleeting"
+    },
+    {
+      "name": "Sarah Higley",
+      "email": "sarah@monkee-boy.com",
+      "url": "https://github.com/smhigley"
+    },
+    {
+      "name": "John Hoover",
+      "email": "john@monkee-boy.com",
+      "url": "https://github.com/defvayne23"
+    }
+  ],
+  "main": "_mixins.scss",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Monkee-Boy/_mixins.scss.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url" : "https://github.com/Monkee-Boy/_mixins.scss/blob/master/MIT-LICENSE.txt"
+    }
+  ]
+}
