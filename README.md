@@ -17,9 +17,9 @@ npm install monkee-mixins
 
 Created with ♥ by the Monkee-Boy Troop.
 
-[![James Fleeting](https://avatars0.githubusercontent.com/u/23062?s=144)](https://github.com/fleeting) | [![Sarah Higley](https://avatars3.githubusercontent.com/u/3819570?s=144)](https://github.com/smhigley) | [![John  Hoover](https://avatars2.githubusercontent.com/u/48278?s=144)](https://github.com/defvayne23)
----|---
-[James Fleeting](http://github.com/fleeting) | [Sarah Higley](https://github.com/smhigley) | [John Hoover](https://github.com/defvayne23)
+| [![James Fleeting](https://avatars0.githubusercontent.com/u/23062?s=144)](https://github.com/fleeting) | [![Sarah Higley](https://avatars3.githubusercontent.com/u/3819570?s=144)](https://github.com/smhigley) | [![John,Hoover](https://avatars2.githubusercontent.com/u/48278?s=144)](https://github.com/defvayne23) |
+|---|---|---|
+| [James Fleeting](http://github.com/fleeting) | [Sarah Higley](https://github.com/smhigley) | [John Hoover](https://github.com/defvayne23) |
 
 ## License
 
