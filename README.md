@@ -3,5 +3,14 @@
 
 Just a simple collection of SASS mixins and functions MBoy finds useful. Find more at [monkee-boy.github.io](https://monkee-boy.github.io).
 
+**[Bower](http://bower.io/)**
+```shell
+bower install monkee-mixins
+```
+
+**[npm](https://www.npmjs.org/)**
+```shell
+npm install monkee-mixins
+```
 
 ![Monkee-Boy](http://www.monkee-boy.com/img/logo-withtag-vertical-dark.jpg)
