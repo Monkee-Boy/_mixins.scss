@@ -100,6 +100,14 @@
   transform: translate($x, $y, $z);
 }
 
+@mixin transform($transforms...) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
   -moz-background-clip: $clip;
@@ -111,6 +119,16 @@
   -moz-background-size: $size;
   -o-background-size: $size;
   background-size: $size;
+}
+
+@mixin linear-gradient($color1, $color2, $start: 0%, $end: 100%) {
+  background-color: $color2;
+  background-image: -moz-linear-gradient(top, $color1 $start, $color2 $end); /* FF3.6+ */
+  background-image: -webkit-linear-gradient(top, $color1 $start, $color2 $end); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(top, $color1 $start, $color2 $end); /* Opera 11.10+ */
+  background-image: -ms-linear-gradient(top, $color1 $start, $color2 $end); /* IE10+ */
+  background-image: linear-gradient(to bottom, $color1 $start, $color2 $end); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($color1)}', endColorstr='#{ie-hex-str($color2)}',GradientType=0 ); /* IE6-9 */
 }
 
 @mixin box-sizing($boxmodel) {
@@ -177,17 +195,6 @@
     background-image: url($image);
     background-size: $size;
   }
-}
-
-@mixin linear-horizontal-gradient($startcolor, $startpercent, $stopcolor, $stoppercent) {
-  background: $startcolor;
-  background: -moz-linear-gradient(top, $startcolor $startpercent, $stopcolor $stoppercent); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop($startpercent,$startcolor), color-stop($stoppercent,$stopcolor)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, $startcolor $startpercent,$stopcolor $stoppercent); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, $startcolor $startpercent,$stopcolor $stoppercent); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, $startcolor $startpercent,$stopcolor $stoppercent); /* IE10+ */
-  background: linear-gradient(to bottom, $startcolor $startpercent,$stopcolor $stoppercent); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$startcolor}, endColorstr=#{$stopcolor},GradientType=0 ); /* IE6-9 */
 }
 
 @mixin keyframes($name) {
