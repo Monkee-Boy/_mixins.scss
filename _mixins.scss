@@ -30,6 +30,15 @@
   height: $height;
 }
 
+@mixin ratio($percent) {
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-bottom: $percent;
+  }
+}
+
 @mixin opacity($opacity) {
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
