@@ -1,0 +1,6 @@
+{
+  "name": "monkee-mixins",
+  "description": "Just a simple collection of useful SASS mixins and functions from Monkee-Boy.",
+  "tags": ["sass", "mixins", "functions", "css", "monkeeboy"],
+  "website": "https://github.com/Monkee-Boy/_mixins.scss"
+}

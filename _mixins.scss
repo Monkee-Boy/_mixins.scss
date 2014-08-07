@@ -228,6 +228,30 @@
   animation: $animation;
 }
 
+/*
+  # USAGE #
+  $large: "(min-width: 1024px)";
+
+  header {
+    @include breakpoint($large){
+      width: 100%;
+      margin: 5em 0;
+    }
+  }
+*/
+@mixin breakpoint($query) {
+  $valid: true;
+  @if type-of($query) != "string" {
+    @warn "query: #{$query} is not a string";
+    $valid: false;
+  }
+  @if $valid == true {
+    @media #{$query} {
+      @content;
+    }
+  }
+}
+
 /* Functions */
 @function lighten($color, $percent) {
   @if type-of($color) != color {
