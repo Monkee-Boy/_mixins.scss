@@ -191,7 +191,7 @@
     src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
       url('#{$file-path}.woff') format('woff'),
       url('#{$file-path}.ttf') format('truetype'),
-      url('#{$file-path}.svg##{$file-family}') format('svg');
+      url('#{$file-path}.svg##{$font-family}') format('svg');
   }
 }
 
