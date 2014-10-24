@@ -209,6 +209,28 @@
   width: 0% + $size;
 }
 
+@mixin visuallyhidden() {
+	clip: rect(0,0,0,0);
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	&.focusable:active,
+	&.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
 @mixin font-face($font-family, $file-path, $font-weight: normal, $font-style: normal) {
   @font-face {
     font-family: $font-family;
