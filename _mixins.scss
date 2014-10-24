@@ -1,4 +1,8 @@
-/* Snippets */
+/* # USAGE #
+  .monkee {
+    @include clearfix;
+  }
+*/
 @mixin clearfix() {
   &:before,
   &:after {
@@ -69,6 +73,11 @@
   transition: $transition;
 }
 
+/* # USAGE #
+  .monkee {
+    @include transition-custom(timing-function, cubic-bezier(0.755, 0.050, 0.855, 0.060));
+  }
+*/
 @mixin transition-custom($key, $value) {
   -webkit-transition-#{$key}: $value;
   -moz-transition-#{$key}: $value;
@@ -209,6 +218,11 @@
   width: 0% + $size;
 }
 
+/* # USAGE #
+  .visuallyhidden {
+    @include visuallyhidden;
+  }
+*/
 @mixin visuallyhidden() {
 	clip: rect(0,0,0,0);
 	border: 0;
@@ -277,8 +291,30 @@
   animation: $animation;
 }
 
-/*
-  # USAGE #
+/* # USAGE #
+  .icon {
+    @include pseudo-elements(before, 1.56em, .125em) {
+      background: #333;
+      top: .25em;
+    }
+  }
+*/
+@mixin pseudo-elements($el, $width, $height){
+	@if $el == "before" or $el == "after"{
+		&:#{$el}{
+			content: "";
+			position: absolute;
+			width: $width;
+			height: $height;
+			@content;
+		}
+	}
+	@else {
+		@warn "`#{$el}` is not a valid pseudo-element.";
+	}
+}
+
+/* # USAGE #
   $large: "(min-width: 1024px)";
 
   header {
