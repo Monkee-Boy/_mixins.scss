@@ -323,7 +323,6 @@
 }
 
 @mixin bp($min, $max: false) {
-  $valid: true;
   $query: only screen;
 
   @if $min {
@@ -333,15 +332,8 @@
     $query: append($query, "and (max-width: #{em-calc($max, 16)})", space);
   }
 
-  @if type-of($query) != "string" {
-    @warn "query: #{$query} is not a string";
-    $valid: false;
-  }
-
-  @if $valid == true {
-    @media #{$query} {
-      @content;
-    }
+  @media #{$query} {
+    @content;
   }
 }
 
