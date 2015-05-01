@@ -291,6 +291,14 @@
   animation: $animation;
 }
 
+@mixin filter($filter) {
+  -webkit-filter: $filter;
+	-moz-filter: $filter;
+	-ms-filter: $filter;
+	-o-filter: $filter;
+	filter: $filter;
+}
+
 /* # USAGE #
   .icon {
     @include pseudo-elements(before, 1.56em, .125em) {
@@ -314,22 +322,22 @@
 	}
 }
 
-/* # USAGE #
-  $large: "(min-width: 1024px)";
-
-  header {
-    @include breakpoint($large){
-      width: 100%;
-      margin: 5em 0;
-    }
-  }
-*/
-@mixin breakpoint($query) {
+@mixin bp($min, $max: false) {
   $valid: true;
+  $query: only screen;
+
+  @if $min {
+    $query: append($query, "and (min-width: #{em-calc($min, 16)})", space);
+  }
+  @if $max {
+    $query: append($query, "and (max-width: #{em-calc($max, 16)})", space);
+  }
+
   @if type-of($query) != "string" {
     @warn "query: #{$query} is not a string";
     $valid: false;
   }
+
   @if $valid == true {
     @media #{$query} {
       @content;
