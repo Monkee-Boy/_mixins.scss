@@ -170,6 +170,15 @@
   user-select: $select;
 }
 
+@mixin selection() {
+  ::selection {
+    @content;
+  }
+  ::-moz-selection {
+    @content;
+  }
+}
+
 @mixin placeholder() {
   &::-webkit-input-placeholder {
     @content;
@@ -242,25 +251,25 @@
   }
 */
 @mixin visuallyhidden() {
-	clip: rect(0,0,0,0);
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+  clip: rect(0,0,0,0);
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 
-	&.focusable:active,
-	&.focusable:focus {
-		clip: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-		position: static;
-		width: auto;
-	}
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
 }
 
 @mixin font-face($font-family, $file-path, $font-weight: normal, $font-style: normal) {
@@ -311,10 +320,10 @@
 
 @mixin filter($filter) {
   -webkit-filter: $filter;
-	-moz-filter: $filter;
-	-ms-filter: $filter;
-	-o-filter: $filter;
-	filter: $filter;
+  -moz-filter: $filter;
+  -ms-filter: $filter;
+  -o-filter: $filter;
+  filter: $filter;
 }
 
 /* # USAGE #
@@ -326,18 +335,18 @@
   }
 */
 @mixin pseudo-elements($el, $width, $height){
-	@if $el == "before" or $el == "after"{
-		&:#{$el}{
-			content: "";
-			position: absolute;
-			width: $width;
-			height: $height;
-			@content;
-		}
-	}
-	@else {
-		@warn "`#{$el}` is not a valid pseudo-element.";
-	}
+  @if $el == "before" or $el == "after"{
+  	&:#{$el}{
+  		content: "";
+  		position: absolute;
+  		width: $width;
+  		height: $height;
+  		@content;
+  	}
+  }
+  @else {
+    @warn "`#{$el}` is not a valid pseudo-element.";
+  }
 }
 
 @mixin bp($min, $max: false) {
