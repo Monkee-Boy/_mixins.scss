@@ -1,4 +1,4 @@
-/* # USAGE #
+/*
   .monkee {
     @include clearfix;
   }
@@ -365,6 +365,12 @@
 }
 
 /* Functions */
+
+/* # Return a unitless number. */
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
 @function lighten($color, $percent) {
   @if type-of($color) != color {
     @warn "`#{$color}` should be a valid color for `lighten`.";
@@ -385,15 +391,27 @@
     @return map-get(map-get($palettes, $palette), $tone);
 }
 
-/* # USAGE #
+/*
+  # Convert Photoshop letter spacing to pixels. http://justinmarsan.com/css-letter-spacing-in-photoshop-and-browsers/
+  @params(photoshop-letter-spacing, font-size-in-pixels)
+
+  .foo {
+    letter-spacing: letter-spacing-calc(25, 16);
+  }
+*/
+@function letter-spacing-calc($spacing, $font-size) {
+  @return ( $spacing * strip-unit($font-size) / 1000) * 1px;
+}
+
+/*
+  # Convert px to em.
+  @params(font-size-in-pixels, optional-em-base)
+
   .foo {
     margin-top: em-calc(42px);
   }
 */
 $em-base: 16px !default;
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
 
 @function convert-to-em($value, $base-value: $em-base)  {
   $value: strip-unit($value) / strip-unit($base-value) * 1em;

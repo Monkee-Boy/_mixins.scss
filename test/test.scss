@@ -2,6 +2,7 @@
 
 .build-test {
   color: darken(#ccc, 50%);
+  letter-spacing: letter-spacing-cal(25, 14px);
   @include transition-custom(timing-function, cubic-bezier(0.215, 0.610, 0.355, 1.000));
   @include translate3d(0,-15px,0);
   @include bp(880) { width: percentage(2/12); }
